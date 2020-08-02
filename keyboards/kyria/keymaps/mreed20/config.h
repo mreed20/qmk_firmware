@@ -33,6 +33,8 @@
 
 // This works better for faster typists.
 #define PERMISSIVE_HOLD
+#define IGNORE_MOD_TAP_INTERRUPT
+
 
 // Determine handedness from the EEPROM
 // https://docs.qmk.fm/#/config_options?id=setting-handedness
