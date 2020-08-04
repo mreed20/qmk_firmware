@@ -15,16 +15,34 @@
  */
 #include QMK_KEYBOARD_H
 
+#define XXX (KC_TRNS)
 
-#include "layout_gen.c"
 
-#ifdef RGBLIGHT_ENABLE
-void keyboard_post_init_user(void) {
-  rgblight_enable_noeeprom(); // Enables RGB, without saving settings
-  rgblight_sethsv_noeeprom(HSV_CYAN);
-  rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
-}
-#endif
+/* [_LAYERINDEX] = LAYOUT( */
+/*   _______, _______, _______, _______, _______, _______,                                     _______, _______, _______, _______, _______, _______, */
+/*   _______, _______, _______, _______, _______, _______,                                     _______, _______, _______, _______, _______, _______, */
+/*   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, */
+/*                              _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ */
+/* ), */
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    [0] = LAYOUT(
+        XXX, KC_Q,         KC_W,    KC_D,    KC_F,    KC_K,                                                                   KC_J,    KC_U,    KC_R,    KC_L,    KC_SCLN,         XXX,
+        XXX, KC_A,         KC_S,    KC_E,    KC_T,    KC_G,                                                                   KC_Y,    KC_N,    KC_I,    KC_O,    KC_H,            XXX,
+        XXX, LALT_T(KC_Z), KC_X,    KC_C,    KC_V,    KC_B,    XXX,            XXX,             XXX,          XXX,            KC_P,    KC_M,    KC_COMM, KC_DOT,  LALT_T(KC_SLSH), XXX,
+                                    XXX,     XXX,     XXX,     RCTL_T(KC_TAB), LSFT_T(KC_BSPC), LT(1,KC_SPC), LGUI_T(KC_ENT), OSL(2),  XXX,     XXX
+     ),
+	[1] = LAYOUT(
+        XXX, XXX,          KC_EXLM, KC_LCBR, KC_RCBR, KC_CIRC,                                                                KC_PERC, KC_UNDS, KC_QUOT, KC_PIPE, XXX,             XXX,
+        XXX, KC_CIRC,      KC_DLR,  KC_LPRN, KC_RPRN, KC_ASTR,                                                                KC_EQL,  KC_MINS, KC_DQUO, KC_SLSH, KC_HASH,         XXX,
+        XXX, XXX,          KC_AT,   KC_LBRC, KC_RBRC, KC_AMPR, XXX,            XXX,             XXX,          XXX,            KC_PLUS, KC_TILD, KC_GRV,  KC_BSLS, XXX,             XXX,
+                                    XXX,     XXX,     XXX,     KC_ESC,         LGUI(KC_SPC),    XXX,          XXX,            XXX,     XXX,     XXX
+    ),
+	[2] = LAYOUT(
+        XXX, XXX,          KC_7,    KC_8,    KC_9,    XXX,                                                                    XXX,     XXX,     XXX,     XXX,     XXX,             XXX,
+        XXX, KC_0,         KC_1,    KC_2,    KC_3,    XXX,                                                                    XXX,     XXX,     XXX,     XXX,     XXX,             XXX,
+        XXX, XXX,          KC_4,    KC_5,    KC_6,    XXX,     XXX,            XXX,             XXX,          XXX,            XXX,     XXX,     XXX,     XXX,     XXX,             XXX,
+                                    XXX,     XXX,     XXX,     KC_VOLD,        KC_VOLU,         XXX,          XXX,            XXX,     XXX,     XXX)
+};
 
 #ifdef OLED_DRIVER_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
@@ -57,19 +75,16 @@ static void render_qmk_logo(void) {
 static void render_status(void) {
     // QMK Logo and version information
     render_qmk_logo();
-    oled_write_P(PSTR("Kyria rev1.0\n\n"), false);
-
-    // Host Keyboard Layer Status
-    oled_write_P(PSTR("Layer: "), false);
+    oled_write_P(PSTR("\n"), false);
     switch (get_highest_layer(layer_state)) {
         case 0:
-            oled_write_P(PSTR("Default\n"), false);
+            oled_write_P(PSTR("         Base\n"), false);
             break;
         case 1:
-            oled_write_P(PSTR("Symbols\n"), false);
+            oled_write_P(PSTR("        Symbols\n"), false);
             break;
         case 2:
-            oled_write_P(PSTR("Numbers\n"), false);
+            oled_write_P(PSTR("        Numbers\n"), false);
             break;
         default:
             oled_write_P(PSTR("Undefined\n"), false);
@@ -87,27 +102,6 @@ void oled_task_user(void) {
         render_status(); // Renders the current keyboard state (layer, lock, caps, scroll, etc)
     } else {
         render_kyria_logo();
-    }
-}
-#endif
-
-#ifdef ENCODER_ENABLE
-void encoder_update_user(uint8_t index, bool clockwise) {
-    if (index == 0) {
-        // Volume control
-        if (clockwise) {
-            tap_code(KC_VOLU);
-        } else {
-            tap_code(KC_VOLD);
-        }
-    }
-    else if (index == 1) {
-        // Page up/Page down
-        if (clockwise) {
-            tap_code(KC_PGDN);
-        } else {
-            tap_code(KC_PGUP);
-        }
     }
 }
 #endif
