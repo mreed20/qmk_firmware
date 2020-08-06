@@ -35,9 +35,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                            _______,     _______, _______, SFT_T(KC_TAB), LT(1,KC_BSPC), LT(2,KC_SPC), SFT_T(KC_ENT), _______,  _______, _______
     ),
 	[SYMBOLS] = LAYOUT(
-        _______, KC_LABK,     KC_RABK,     KC_LCBR,     KC_RCBR, KC_HASH,                                                            KC_PERC,  KC_UNDS, KC_QUOT,        KC_PIPE,       KC_COLN,        _______,
-        _______, KC_CIRC,     KC_DLR,      KC_LPRN,     KC_RPRN, KC_ASTR,                                                            KC_EQL,   KC_MINS, KC_DQUO,        KC_SLSH,       KC_DLR,         _______,
-        _______, KC_EXLM,     KC_AT,       KC_LBRC,     KC_RBRC, KC_AMPR, _______,       _______,       _______,      _______,       KC_PLUS,  KC_TILD, KC_GRV,         KC_BSLS,       KC_QUES,        _______,
+        _______, KC_LABK,     KC_RABK,     KC_LCBR,     KC_RCBR, KC_HASH,                                                            KC_PERC,  KC_UNDS, KC_PIPE,        KC_QUOT,       KC_COLN,        _______,
+        _______, KC_CIRC,     KC_DLR,      KC_LPRN,     KC_RPRN, KC_ASTR,                                                            KC_EQL,   KC_TILD, KC_SLSH,        KC_DQUO,       KC_DLR,         _______,
+        _______, KC_EXLM,     KC_AT,       KC_LBRC,     KC_RBRC, KC_AMPR, _______,       _______,       _______,      _______,       KC_PLUS,  KC_MINS, KC_BSLS,        KC_GRV,        KC_QUES,        _______,
                                            _______,     _______, _______, _______,       _______,       KC_ESC,       _______,       _______,  _______, _______
     ),
 	[NUMBERS] = LAYOUT(
