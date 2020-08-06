@@ -1,2 +1,3 @@
 - try moving CTRL and GUI off of thumb cluster next to ALT, so I can have symmetric modifiers. This would also allow for symmetric thumb shifts, moving LT2 to the thumb, moving Esc closer to the outermost (most popular) thumb, and removing the awkward cmd+space shortcut.
 - do a writeup on my layout, similar to the README.md in the new QMK ferris layout (https://github.com/qmk/qmk_firmware/pull/9926) which provides lots of reasoning- do a writeup on my layout, similar to the README.md in the new QMK ferris layout (https://github.com/qmk/qmk_firmware/pull/9926) which provides lots of reasoning
+- Navigation layer w/ mouse keys!

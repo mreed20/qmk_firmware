@@ -15,9 +15,6 @@
  */
 #include QMK_KEYBOARD_H
 
-#define XXX (KC_TRNS)
-
-
 /* [_LAYERINDEX] = LAYOUT( */
 /*   _______, _______, _______, _______, _______, _______,                                     _______, _______, _______, _______, _______, _______, */
 /*   _______, _______, _______, _______, _______, _______,                                     _______, _______, _______, _______, _______, _______, */
@@ -26,22 +23,22 @@
 /* ), */
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(
-        XXX, KC_Q,         KC_W,    KC_D,    KC_F,    KC_K,                                                                   KC_J,    KC_U,    KC_R,    KC_L,    KC_SCLN,         XXX,
-        XXX, KC_A,         KC_S,    KC_E,    KC_T,    KC_G,                                                                   KC_Y,    KC_N,    KC_I,    KC_O,    KC_H,            XXX,
-        XXX, LALT_T(KC_Z), KC_X,    KC_C,    KC_V,    KC_B,    XXX,            XXX,             XXX,          XXX,            KC_P,    KC_M,    KC_COMM, KC_DOT,  LALT_T(KC_SLSH), XXX,
-                                    XXX,     XXX,     XXX,     RCTL_T(KC_TAB), LSFT_T(KC_BSPC), LT(1,KC_SPC), LGUI_T(KC_ENT), OSL(2),  XXX,     XXX
+        _______, KC_Q,        KC_W,        KC_D,        KC_F,    KC_K,                                                               KC_J,     KC_U,     KC_R,           KC_L,          KC_SCLN,        _______,
+        _______, KC_A,        KC_S,        KC_E,        KC_T,    KC_G,                                                               KC_Y,     KC_N,     KC_I,           KC_O,          KC_H,           _______,
+        _______, ALT_T(KC_Z), CTL_T(KC_X), GUI_T(KC_C), KC_V,    KC_B,    _______,       _______,       _______,      _______,       KC_P,     KC_M,     GUI_T(KC_COMM), CTL_T(KC_DOT), ALT_T(KC_SLSH), _______,
+                                           _______,     _______, _______, SFT_T(KC_TAB), LT(1,KC_BSPC), LT(2,KC_SPC), SFT_T(KC_ENT), _______,  _______,  _______
      ),
 	[1] = LAYOUT(
-        XXX, XXX,          KC_EXLM, KC_LCBR, KC_RCBR, KC_CIRC,                                                                KC_PERC, KC_UNDS, KC_QUOT, KC_PIPE, XXX,             XXX,
-        XXX, KC_CIRC,      KC_DLR,  KC_LPRN, KC_RPRN, KC_ASTR,                                                                KC_EQL,  KC_MINS, KC_DQUO, KC_SLSH, KC_HASH,         XXX,
-        XXX, XXX,          KC_AT,   KC_LBRC, KC_RBRC, KC_AMPR, XXX,            XXX,             XXX,          XXX,            KC_PLUS, KC_TILD, KC_GRV,  KC_BSLS, XXX,             XXX,
-                                    XXX,     XXX,     XXX,     KC_ESC,         LGUI(KC_SPC),    XXX,          XXX,            XXX,     XXX,     XXX
+        _______, _______,     KC_EXLM, KC_LCBR, KC_RCBR, KC_CIRC,                                                                KC_PERC, KC_UNDS, KC_QUOT, KC_PIPE, _______, _______,
+        _______, KC_CIRC,     KC_DLR,  KC_LPRN, KC_RPRN, KC_ASTR,                                                                KC_EQL,  KC_MINS, KC_DQUO, KC_SLSH, KC_HASH, _______,
+        _______, _______,     KC_AT,   KC_LBRC, KC_RBRC, KC_AMPR, _______, _______, _______, _______, KC_PLUS, KC_TILD, KC_GRV, KC_BSLS,  _______, _______,
+                                       _______, _______, _______, _______, KC_ESC,  _______, _______, _______, _______, _______
     ),
 	[2] = LAYOUT(
-        XXX, XXX,          KC_7,    KC_8,    KC_9,    XXX,                                                                    XXX,     XXX,     XXX,     XXX,     XXX,             XXX,
-        XXX, KC_0,         KC_1,    KC_2,    KC_3,    XXX,                                                                    XXX,     XXX,     XXX,     XXX,     XXX,             XXX,
-        XXX, XXX,          KC_4,    KC_5,    KC_6,    XXX,     XXX,            XXX,             XXX,          XXX,            XXX,     XXX,     XXX,     XXX,     XXX,             XXX,
-                                    XXX,     XXX,     XXX,     KC_VOLD,        KC_VOLU,         XXX,          XXX,            XXX,     XXX,     XXX)
+        _______, _______, KC_7, KC_8,    KC_9,    _______,                                                                    _______,     _______,     _______,     _______,     _______,             _______,
+        _______, KC_0,    KC_1, KC_2,    KC_3,    _______,                                                                    _______,     _______,     _______,     _______,     _______,             _______,
+        _______, _______, KC_4, KC_5,    KC_6,    _______, _______, _______, _______, _______, _______, _______, _______,     _______,     _______,             _______,
+                                _______, _______, _______, KC_VOLD, KC_VOLU, _______, _______, _______, _______, _______)
 };
 
 #ifdef OLED_DRIVER_ENABLE
