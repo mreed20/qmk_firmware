@@ -260,18 +260,15 @@ static const char PROGMEM logo_numbers[] = {
 };
 
 static void render_status(void) {
-    switch (get_highest_layer(layer_state)) {
-        case 0:
-            oled_write_raw_P(logo_letters, sizeof(logo_letters));
-            break;
-        case 1:
-            oled_write_raw_P(logo_symbols, sizeof(logo_symbols));
-            break;
-        case 2:
-            oled_write_raw_P(logo_numbers, sizeof(logo_numbers));
-            break;
-        default:
-            oled_write_P(PSTR("Undefined\n"), false);
+    int l = get_highest_layer(layer_state);
+    if (l == BASE) {
+        oled_write_raw_P(logo_letters, sizeof(logo_letters));
+    } else if (l == SYMBOLS) {
+        oled_write_raw_P(logo_symbols, sizeof(logo_symbols));
+    } else if (l == NUMBERS) {
+        oled_write_raw_P(logo_numbers, sizeof(logo_numbers));
+    } else {
+        oled_write_P(PSTR("Undefined\n"), false);
     }
 }
 
