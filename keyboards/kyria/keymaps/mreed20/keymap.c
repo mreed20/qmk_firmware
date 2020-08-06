@@ -31,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT(
         _______, KC_Q,        KC_W,        KC_D,        KC_F,    KC_K,                                                               KC_J,     KC_U,     KC_R,           KC_L,          KC_SCLN,        _______,
         _______, KC_A,        KC_S,        KC_E,        KC_T,    KC_G,                                                               KC_Y,     KC_N,     KC_I,           KC_O,          KC_H,           _______,
-        _______, ALT_T(KC_Z), CTL_T(KC_X), GUI_T(KC_C), KC_V,    KC_B,    _______,       _______,       _______,      _______,       KC_P,     KC_M,     GUI_T(KC_COMM), CTL_T(KC_DOT), ALT_T(KC_SLSH), _______,
+        _______, CTL_T(KC_Z), ALT_T(KC_X), GUI_T(KC_C), KC_V,    KC_B,    _______,       _______,       _______,      _______,       KC_P,     KC_M,     GUI_T(KC_COMM), ALT_T(KC_DOT), CTL_T(KC_SLSH), _______,
                                            _______,     _______, _______, SFT_T(KC_TAB), LT(1,KC_BSPC), LT(2,KC_SPC), SFT_T(KC_ENT), _______,  _______,  _______
      ),
 	[SYMBOLS] = LAYOUT(
