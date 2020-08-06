@@ -24,5 +24,10 @@
 #define IGNORE_MOD_TAP_INTERRUPT
 #define PERMISSIVE_HOLD
 
+// This allows ModTap keys to be used as modifiers *shortly*
+// after being used as a tap.
+#define TAPPING_FORCE_HOLD
+
 // This way only one side has the used keymap.
 #define MASTER_RIGHT
+

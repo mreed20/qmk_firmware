@@ -1,4 +1,0 @@
-- regarding modTap keys on the thumbs
-    - tapdance for thumb keys: "tapdance is what I've been using. one tap right thumb is Cmd, two is Opt, three is Ctrl. One tap left thumb is Opt, two is Ctrl, three is Cmd. On my ergodox, I have another thumbkey set up to send shift-cmd, then shift-ctrl, then shift-opt, on 1,2,3"
-    - TAPPING_TERM_PER_KEY
-- do a writeup on my layout, similar to the README.md in the new QMK ferris layout (https://github.com/qmk/qmk_firmware/pull/9926) which provides lots of reasoning
