@@ -23,6 +23,8 @@
 // This works better for faster typists.
 #define IGNORE_MOD_TAP_INTERRUPT
 #define PERMISSIVE_HOLD
+#define TAPPING_TERM 125
+#define PERMISSIVE_HOLD_PER_KEY
 
 // This allows ModTap keys to be used as modifiers *shortly*
 // after being used as a tap.

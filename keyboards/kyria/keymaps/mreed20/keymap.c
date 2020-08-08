@@ -34,22 +34,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, CTL_T(KC_Z), ALT_T(KC_X), GUI_T(KC_C), KC_V,    KC_B,    _______,       _______,       _______,      _______,       KC_P,     KC_M,    GUI_T(KC_COMM), ALT_T(KC_DOT), CTL_T(KC_SLSH), _______,
                                            _______,     _______, _______, SFT_T(KC_TAB), LT(1,KC_BSPC), LT(2,KC_SPC), SFT_T(KC_ENT), _______,  _______, _______
     ),
-	[SYMBOLS] = LAYOUT(
+    [SYMBOLS] = LAYOUT(
         _______, KC_LABK,     KC_RABK,     KC_LCBR,     KC_RCBR, KC_HASH,                                                            KC_PERC,  KC_UNDS, KC_PIPE,        KC_QUOT,       KC_COLN,        _______,
         _______, KC_CIRC,     KC_DLR,      KC_LPRN,     KC_RPRN, KC_ASTR,                                                            KC_EQL,   KC_TILD, KC_SLSH,        KC_DQUO,       KC_DLR,         _______,
         _______, KC_EXLM,     KC_AT,       KC_LBRC,     KC_RBRC, KC_AMPR, _______,       _______,       _______,      _______,       KC_PLUS,  KC_MINS, KC_BSLS,        KC_GRV,        KC_QUES,        _______,
                                            _______,     _______, _______, _______,       _______,       KC_ESC,       _______,       _______,  _______, _______
     ),
-	[NUMBERS] = LAYOUT(
+    [NUMBERS] = LAYOUT(
         _______, _______,     KC_7,        KC_8,        KC_9,    _______,                                                            _______,  _______, _______,         _______,      _______,        _______,
         _______, KC_0,        KC_1,        KC_2,        KC_3,    _______,                                                            _______,  _______, _______,         _______,      _______,        _______,
         _______, _______,     KC_4,        KC_5,        KC_6,    _______, _______,       _______,       _______,      _______,       _______,  _______, _______,         _______,      _______,        _______,
                                            _______,     _______, _______, KC_VOLD,       KC_VOLU,       _______,      _______,       _______,  _______, _______)
 };
 
+// Disable permissive hold for home row mods.
+// Source: MrLinuxFish on Discord channel "splitkb.com".
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case CTL_T(KC_Z):
+        case ALT_T(KC_X):
+        case GUI_T(KC_C):
+        case GUI_T(KC_COMM):
+        case ALT_T(KC_DOT):
+        case CTL_T(KC_SLSH):
+            // This actually *disables* the permissive hold for these keys.
+            // See issue https://github.com/qmk/qmk_firmware/issues/8999
+            return true;
+        default:
+            return false;
+    }
+}
+
 #ifdef OLED_DRIVER_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-	return OLED_ROTATION_180;
+    return OLED_ROTATION_180;
 }
 
 // 128x64px
