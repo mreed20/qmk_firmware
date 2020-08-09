@@ -33,13 +33,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_Q,        KC_W,        KC_D,        KC_F,        KC_K,                                                                   KC_J,     KC_U,        KC_R,           KC_L,          KC_SCLN,        _______,
         _______, KC_A,        KC_S,        KC_E,        KC_T,        KC_G,                                                                   KC_Y,     KC_N,        KC_I,           KC_O,          KC_H,           _______,
         _______, SFT_T(KC_Z), CTL_T(KC_X), ALT_T(KC_C), GUI_T(KC_V), KC_B,    _______, _______,           _______,          _______,         KC_P,     GUI_T(KC_M), ALT_T(KC_COMM), CTL_T(KC_DOT), SFT_T(KC_SLSH), _______,
-                                           _______,     _______,     _______, KC_TAB,  LT(_SYMR,KC_BSPC), LT(_SYML,KC_SPC), LT(_NUM,KC_ENT), _______,  _______,     _______
+                                           _______,     _______,     KC_VOLD, KC_TAB,  LT(_SYMR,KC_BSPC), LT(_SYML,KC_SPC), LT(_NUM,KC_ENT), KC_VOLU,  _______,     _______
     ),
     [_SYML] = LAYOUT(
         _______, _______, KC_COLN, KC_LABK, KC_RABK, KC_SCLN,                                     _______, _______, _______, _______, _______, _______,
         _______, KC_LCBR, KC_RCBR, KC_LPRN, KC_RPRN, KC_AT,                                       _______, _______, KC_EQL,  KC_PLUS, KC_PERC, _______,
         _______, _______, KC_EXLM, KC_LBRC, KC_RBRC, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-                                   _______, _______, _______, KC_VOLD, _______, _______, KC_VOLU, _______, _______, _______
+                                   _______, _______, _______, _______, KC_ESC,  _______, _______, _______, _______, _______
     ),
     [_SYMR] = LAYOUT(
         _______, _______, _______, _______, _______, _______,                                     _______, KC_UNDS, KC_PIPE, KC_QUOT, _______, _______,
