@@ -29,10 +29,10 @@ enum layers {
 /* ), */
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT(
-        _______, KC_Q,        KC_W,        KC_D,        KC_F,        KC_K,                                                           KC_J,     KC_U,        KC_R,        KC_L,        KC_SCLN,     _______,
-        _______, SFT_T(KC_A), CTL_T(KC_S), ALT_T(KC_E), GUI_T(KC_T), KC_G,                                                           KC_Y,     GUI_T(KC_N), ALT_T(KC_I), CTL_T(KC_O), SFT_T(KC_H), _______,
-        _______, KC_Z,        KC_X,        KC_C,        KC_V,        KC_B,    _______,   _______,       _______,      _______,       KC_P,     KC_M,        KC_COMM,     KC_DOT,      KC_SLSH,     _______,
-                                           _______,     _______,     _______, KC_TAB,    LT(1,KC_BSPC), LT(1,KC_SPC), LT(2,KC_ENT),  _______,  _______,     _______
+        _______, KC_Q,        KC_W,        KC_D,        KC_F,    KC_K,                                                               KC_J,     KC_U,    KC_R,           KC_L,          KC_SCLN,        _______,
+        _______, KC_A,        KC_S,        KC_E,        KC_T,    KC_G,                                                               KC_Y,     KC_N,    KC_I,           KC_O,          KC_H,           _______,
+        _______, CTL_T(KC_Z), ALT_T(KC_X), GUI_T(KC_C), KC_V,    KC_B,    _______,       _______,       _______,      _______,       KC_P,     KC_M,    GUI_T(KC_COMM), ALT_T(KC_DOT), CTL_T(KC_SLSH), _______,
+                                           _______,     _______, _______, SFT_T(KC_TAB), LT(1,KC_BSPC), LT(2,KC_SPC), SFT_T(KC_ENT), _______,  _______, _______
     ),
     [SYMBOLS] = LAYOUT(
         _______, KC_LABK,     KC_RABK,     KC_LCBR,     KC_RCBR, KC_HASH,                                                            KC_PERC,  KC_UNDS, KC_PIPE,        KC_QUOT,       KC_COLN,        _______,
@@ -51,14 +51,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Source: MrLinuxFish on Discord channel "splitkb.com".
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case SFT_T(KC_A):
-        case CTL_T(KC_S):
-        case ALT_T(KC_E):
-        case GUI_T(KC_T):
-        case GUI_T(KC_N):
-        case ALT_T(KC_I):
-        case CTL_T(KC_O):
-        case SFT_T(KC_H):
+        case CTL_T(KC_Z):
+        case ALT_T(KC_X):
+        case GUI_T(KC_C):
+        case GUI_T(KC_COMM):
+        case ALT_T(KC_DOT):
+        case CTL_T(KC_SLSH):
             // This actually *disables* the permissive hold for these keys.
             // See issue https://github.com/qmk/qmk_firmware/issues/8999
             return true;
