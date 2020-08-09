@@ -1,6 +1,8 @@
 - more ergonomic: split symbols layer into two layers, symbols-left and symbols-right, per pierrec83. Each layer would be activated by the opposing thumb key.
 
-    - Get to numbers with a tri-layer state using symbols-left and symbols-right
+- Get to numbers with a tri-layer state using symbols-left and symbols-right
+
+- OLED: indicate layer using ASCII art of a layer stack, like in https://beta.docs.qmk.fm/using-qmk/guides/keymap#keymap-and-layers
 
 - Navigation layer w/ mouse keys!
 
