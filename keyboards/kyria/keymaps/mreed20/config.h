@@ -21,15 +21,10 @@
 #endif
 
 // This works better for faster typists.
+#define TAPPING_TERM 125
 #define IGNORE_MOD_TAP_INTERRUPT
 #define PERMISSIVE_HOLD
-#define TAPPING_TERM 125
-#define PERMISSIVE_HOLD_PER_KEY
-
-// This allows ModTap keys to be used as modifiers *shortly*
-// after being used as a tap.
 #define TAPPING_FORCE_HOLD
 
 // This way only one side has the used keymap.
 #define MASTER_RIGHT
-

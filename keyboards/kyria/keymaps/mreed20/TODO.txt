@@ -1,5 +1,3 @@
-- more ergonomic: split symbols layer into two layers, symbols-left and symbols-right, per pierrec83. Each layer would be activated by the opposing thumb key.
-
-- Get to numbers with a tri-layer state using symbols-left and symbols-right
+- don't use RGB (too much work)
 
 - Navigation layer w/ mouse keys

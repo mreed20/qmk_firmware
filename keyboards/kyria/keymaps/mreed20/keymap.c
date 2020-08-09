@@ -16,9 +16,10 @@
 #include QMK_KEYBOARD_H
 
 enum layers {
-    BASE = 0,
-    SYM,
-    NUM,
+    _BASE = 0,
+    _SYML,
+    _SYMR,
+    _NUM,
 };
 
 /* [_LAYERINDEX] = LAYOUT( */
@@ -28,23 +29,29 @@ enum layers {
 /*                              _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ */
 /* ), */
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [BASE] = LAYOUT(
-        _______, KC_Q,        KC_W,        KC_D,        KC_F,        KC_K,                                                           KC_J,     KC_U,        KC_R,           KC_L,          KC_SCLN,        _______,
-        _______, KC_A,        KC_S,        KC_E,        KC_T,        KC_G,                                                           KC_Y,     KC_N,        KC_I,           KC_O,          KC_H,           _______,
-        _______, SFT_T(KC_Z), CTL_T(KC_X), ALT_T(KC_C), CMD_T(KC_V), KC_B,    _______,   _______,         _______,        _______,   KC_P,     CMD_T(KC_M), ALT_T(KC_COMM), CTL_T(KC_DOT), SFT_T(KC_SLSH), _______,
-                                           _______,     _______,     _______, KC_TAB,    LT(SYM,KC_BSPC), LT(NUM,KC_SPC), KC_ENT,    _______,  _______, _______
+    [_BASE] = LAYOUT(
+        _______, KC_Q,        KC_W,        KC_D,        KC_F,        KC_K,                                                                   KC_J,     KC_U,        KC_R,           KC_L,          KC_SCLN,        _______,
+        _______, KC_A,        KC_S,        KC_E,        KC_T,        KC_G,                                                                   KC_Y,     KC_N,        KC_I,           KC_O,          KC_H,           _______,
+        _______, SFT_T(KC_Z), CTL_T(KC_X), ALT_T(KC_C), GUI_T(KC_V), KC_B,    _______, _______,           _______,          _______,         KC_P,     GUI_T(KC_M), ALT_T(KC_COMM), CTL_T(KC_DOT), SFT_T(KC_SLSH), _______,
+                                           _______,     _______,     _______, KC_TAB,  LT(_SYMR,KC_BSPC), LT(_SYML,KC_SPC), LT(_NUM,KC_ENT), _______,  _______,     _______
     ),
-    [SYM] = LAYOUT(
-        _______, KC_LABK,     KC_RABK,     KC_LCBR,     KC_RCBR, KC_HASH,                                                            KC_PERC,  KC_UNDS, KC_PIPE,        KC_QUOT,       KC_COLN,        _______,
-        _______, KC_CIRC,     KC_DLR,      KC_LPRN,     KC_RPRN, KC_ASTR,                                                            KC_EQL,   KC_TILD, KC_SLSH,        KC_DQUO,       KC_DLR,         _______,
-        _______, KC_EXLM,     KC_AT,       KC_LBRC,     KC_RBRC, KC_AMPR, _______,       _______,       _______,      _______,       KC_PLUS,  KC_MINS, KC_BSLS,        KC_GRV,        KC_QUES,        _______,
-                                           _______,     _______, _______, _______,       _______,       KC_ESC,       _______,       _______,  _______, _______
+    [_SYML] = LAYOUT(
+        _______, _______, KC_COLN, KC_LABK, KC_RABK, KC_SCLN,                                     _______, _______, _______, _______, _______, _______,
+        _______, KC_LCBR, KC_RCBR, KC_LPRN, KC_RPRN, KC_AT,                                       _______, _______, KC_EQL,  KC_PLUS, KC_PERC, _______,
+        _______, _______, KC_EXLM, KC_LBRC, KC_RBRC, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+                                   _______, _______, _______, KC_VOLD, _______, _______, KC_VOLU, _______, _______, _______
     ),
-    [NUM] = LAYOUT(
+    [_SYMR] = LAYOUT(
+        _______, _______, _______, _______, _______, _______,                                     _______, KC_UNDS, KC_PIPE, KC_QUOT, _______, _______,
+        _______, KC_CIRC, KC_ASTR, KC_AMPR, _______, _______,                                     KC_HASH, KC_TILD, KC_SLSH, KC_DQUO, KC_DLR,  _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_MINS, KC_BSLS, KC_GRV,  _______, _______,
+                                   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+    ),
+    [_NUM] = LAYOUT(
         _______, _______,     KC_7,        KC_8,        KC_9,    _______,                                                            _______,  _______, _______,         _______,      _______,        _______,
         _______, KC_0,        KC_1,        KC_2,        KC_3,    _______,                                                            _______,  _______, _______,         _______,      _______,        _______,
         _______, _______,     KC_4,        KC_5,        KC_6,    _______, _______,       _______,       _______,      _______,       _______,  _______, _______,         _______,      _______,        _______,
-                                           _______,     _______, _______, KC_VOLD,       KC_VOLU,       _______,      _______,       _______,  _______, _______)
+                                           _______,     _______, _______, _______,       _______,       _______,      _______,       _______,  _______, _______)
 };
 
 // Disable permissive hold for home row mods.
