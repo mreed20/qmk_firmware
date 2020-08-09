@@ -17,8 +17,8 @@
 
 enum layers {
     BASE = 0,
-    SYMBOLS,
-    NUMBERS,
+    SYM,
+    NUM,
 };
 
 /* [_LAYERINDEX] = LAYOUT( */
@@ -31,16 +31,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT(
         _______, KC_Q,        KC_W,        KC_D,        KC_F,        KC_K,                                                           KC_J,     KC_U,        KC_R,           KC_L,          KC_SCLN,        _______,
         _______, KC_A,        KC_S,        KC_E,        KC_T,        KC_G,                                                           KC_Y,     KC_N,        KC_I,           KC_O,          KC_H,           _______,
-        _______, SFT_T(KC_Z), CTL_T(KC_X), ALT_T(KC_C), CMD_T(KC_V), KC_B,    _______,   _______,       _______,      _______,       KC_P,     CMD_T(KC_M), ALT_T(KC_COMM), CTL_T(KC_DOT), SFT_T(KC_SLSH), _______,
-                                           _______,     _______,     _______, KC_TAB,    LT(1,KC_BSPC), LT(2,KC_SPC), KC_ENT,        _______,  _______, _______
+        _______, SFT_T(KC_Z), CTL_T(KC_X), ALT_T(KC_C), CMD_T(KC_V), KC_B,    _______,   _______,         _______,        _______,   KC_P,     CMD_T(KC_M), ALT_T(KC_COMM), CTL_T(KC_DOT), SFT_T(KC_SLSH), _______,
+                                           _______,     _______,     _______, KC_TAB,    LT(SYM,KC_BSPC), LT(NUM,KC_SPC), KC_ENT,    _______,  _______, _______
     ),
-    [SYMBOLS] = LAYOUT(
+    [SYM] = LAYOUT(
         _______, KC_LABK,     KC_RABK,     KC_LCBR,     KC_RCBR, KC_HASH,                                                            KC_PERC,  KC_UNDS, KC_PIPE,        KC_QUOT,       KC_COLN,        _______,
         _______, KC_CIRC,     KC_DLR,      KC_LPRN,     KC_RPRN, KC_ASTR,                                                            KC_EQL,   KC_TILD, KC_SLSH,        KC_DQUO,       KC_DLR,         _______,
         _______, KC_EXLM,     KC_AT,       KC_LBRC,     KC_RBRC, KC_AMPR, _______,       _______,       _______,      _______,       KC_PLUS,  KC_MINS, KC_BSLS,        KC_GRV,        KC_QUES,        _______,
                                            _______,     _______, _______, _______,       _______,       KC_ESC,       _______,       _______,  _______, _______
     ),
-    [NUMBERS] = LAYOUT(
+    [NUM] = LAYOUT(
         _______, _______,     KC_7,        KC_8,        KC_9,    _______,                                                            _______,  _______, _______,         _______,      _______,        _______,
         _______, KC_0,        KC_1,        KC_2,        KC_3,    _______,                                                            _______,  _______, _______,         _______,      _______,        _______,
         _______, _______,     KC_4,        KC_5,        KC_6,    _______, _______,       _______,       _______,      _______,       _______,  _______, _______,         _______,      _______,        _______,
@@ -283,9 +283,9 @@ static void render_status(void) {
     int l = get_highest_layer(layer_state);
     if (l == BASE) {
         oled_write_raw_P(logo_letters, sizeof(logo_letters));
-    } else if (l == SYMBOLS) {
+    } else if (l == SYM) {
         oled_write_raw_P(logo_symbols, sizeof(logo_symbols));
-    } else if (l == NUMBERS) {
+    } else if (l == NUM) {
         oled_write_raw_P(logo_numbers, sizeof(logo_numbers));
     } else {
         oled_write_P(PSTR("Undefined\n"), false);
