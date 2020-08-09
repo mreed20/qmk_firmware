@@ -1,3 +1,7 @@
-- try moving CTRL and GUI off of thumb cluster next to ALT, so I can have symmetric modifiers. This would also allow for symmetric thumb shifts, moving LT2 to the thumb, moving Esc closer to the outermost (most popular) thumb, and removing the awkward cmd+space shortcut.
-- do a writeup on my layout, similar to the README.md in the new QMK ferris layout (https://github.com/qmk/qmk_firmware/pull/9926) which provides lots of reasoning- do a writeup on my layout, similar to the README.md in the new QMK ferris layout (https://github.com/qmk/qmk_firmware/pull/9926) which provides lots of reasoning
+- more ergonomic: split symbols layer into two layers, symbols-left and symbols-right, per pierrec83. Each layer would be activated by the opposing thumb key.
+
+    - Get to numbers with a tri-layer state using symbols-left and symbols-right
+
 - Navigation layer w/ mouse keys!
+
+- do a writeup on my layout, similar to the README.md in the new QMK ferris layout (https://github.com/qmk/qmk_firmware/pull/9926) which provides lots of reasoning- do a writeup on my layout, similar to the README.md in the new QMK ferris layout (https://github.com/qmk/qmk_firmware/pull/9926) which provides lots of reasoning
