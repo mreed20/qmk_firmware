@@ -15,11 +15,25 @@
  */
 #include QMK_KEYBOARD_H
 
-enum layers {
+enum {
     _BASE = 0,
     _SYML,
     _SYMR,
     _NUM,
+};
+
+enum {
+    // left bottom row
+    MOD_Z = GUI_T(KC_Z),
+    MOD_X = ALT_T(KC_X),
+    MOD_C = CTL_T(KC_C),
+    MOD_V = SFT_T(KC_V),
+
+    // right bottom row
+    MOD_M    = SFT_T(KC_M),
+    MOD_COMM = CTL_T(KC_COMM),
+    MOD_DOT  = ALT_T(KC_DOT),
+    MOD_SLSH = GUI_T(KC_SLSH),
 };
 
 /* [_LAYERINDEX] = LAYOUT( */
@@ -30,10 +44,10 @@ enum layers {
 /* ), */
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
-        _______, KC_Q,        KC_W,        KC_D,        KC_F,        KC_K,                                                                   KC_J,     KC_U,        KC_R,           KC_L,          KC_SCLN,        _______,
-        _______, KC_A,        KC_S,        KC_E,        KC_T,        KC_G,                                                                   KC_Y,     KC_N,        KC_I,           KC_O,          KC_H,           _______,
-        _______, SFT_T(KC_Z), CTL_T(KC_X), ALT_T(KC_C), GUI_T(KC_V), KC_B,    _______, _______,           _______,          _______,         KC_P,     GUI_T(KC_M), ALT_T(KC_COMM), CTL_T(KC_DOT), SFT_T(KC_SLSH), _______,
-                                           _______,     _______,     KC_VOLD, KC_TAB,  LT(_SYMR,KC_BSPC), LT(_SYML,KC_SPC), LT(_NUM,KC_ENT), KC_VOLU,  _______,     _______
+        _______, KC_Q,  KC_W,  KC_D,    KC_F,    KC_K,                                                                   KC_J,    KC_U,    KC_R,     KC_L,    KC_SCLN,  _______,
+        _______, KC_A,  KC_S,  KC_E,    KC_T,    KC_G,                                                                   KC_Y,    KC_N,    KC_I,     KC_O,    KC_H,     _______,
+        _______, MOD_Z, MOD_X, MOD_C,   MOD_V,   KC_B,    _______, _______,           _______,          _______,         KC_P,    MOD_M,   MOD_COMM, MOD_DOT, MOD_SLSH, _______,
+                               _______, _______, KC_VOLD, KC_TAB,  LT(_SYMR,KC_BSPC), LT(_SYML,KC_SPC), LT(_NUM,KC_ENT), KC_VOLU, _______, _______
     ),
     [_SYML] = LAYOUT(
         _______, _______, KC_COLN, KC_LABK, KC_RABK, KC_SCLN,                                     _______, _______, _______, _______, _______, _______,
@@ -58,14 +72,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Source: MrLinuxFish on Discord channel "splitkb.com".
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case SFT_T(KC_Z):
-        case CTL_T(KC_X):
-        case ALT_T(KC_C):
-        case GUI_T(KC_V):
-        case GUI_T(KC_M):
-        case ALT_T(KC_COMM):
-        case CTL_T(KC_DOT):
-        case SFT_T(KC_SLSH):
+        case MOD_Z:
+        case MOD_X:
+        case MOD_C:
+        case MOD_V:
+        case MOD_M:
+        case MOD_COMM:
+        case MOD_DOT:
+        case MOD_SLSH:
             // This actually *disables* the permissive hold for these keys.
             // See issue https://github.com/qmk/qmk_firmware/issues/8999
             return true;
