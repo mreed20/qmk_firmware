@@ -1,3 +1,5 @@
 - don't use RGB (too much work)
 
-- Navigation layer w/ mouse keys
+- mouse keys
+
+    - on their own layer? Or on the left side of navigation layer?

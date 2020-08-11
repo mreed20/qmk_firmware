@@ -15,31 +15,42 @@
  */
 #include QMK_KEYBOARD_H
 
+// Layers
 enum {
-    // Base layer, Norman layout
-    _BASE = 0,
-    // Left symbols
-    _SYML,
-    // Right symbols
-    _SYMR,
-    // Numbers
-    _NUM,
-    // Navigation
-    _NAV,
+    _BASE = 0,  // Base layer, Norman layout
+    _SYML,      // Left symbols
+    _SYMR,      // Right symbols
+    _NUM,       // Numbers
+    _NAV,       // Navigation
 };
 
+// Custom key names
 enum {
     // left bottom row
-    MOD_Z = GUI_T(KC_Z),
-    MOD_X = ALT_T(KC_X),
-    MOD_C = CTL_T(KC_C),
+    MOD_Z = LALT_T(KC_Z),
+    MOD_X = CTL_T(KC_X),
+    MOD_C = GUI_T(KC_C),
     MOD_V = SFT_T(KC_V),
 
     // right bottom row
     MOD_M    = SFT_T(KC_M),
-    MOD_COMM = CTL_T(KC_COMM),
-    MOD_DOT  = ALT_T(KC_DOT),
-    MOD_SLSH = GUI_T(KC_SLSH),
+    MOD_COMM = GUI_T(KC_COMM),
+    MOD_DOT  = CTL_T(KC_DOT),
+    MOD_SLSH = LALT_T(KC_SLSH),
+
+    // Mac window navigation
+    APP_PREV = S(G(KC_TAB)),
+    APP_NEXT = G(KC_TAB),
+
+    // browser tab navigation
+    TAB_PREV = S(C(KC_TAB)),
+    TAB_NEXT = C(KC_TAB),
+
+    // command-line editing navigation
+    WORD_PREV  = A(KC_B),
+    WORD_NEXT  = A(KC_F),
+    LINE_START = C(KC_A),
+    LINE_END   = C(KC_E)
 };
 
 /* [_LAYERINDEX] = LAYOUT( */
@@ -72,11 +83,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_0,    KC_1, KC_2,    KC_3,    _______,                                     _______,  _______, _______, _______, _______, _______,
         _______, _______, KC_4, KC_5,    KC_6,    _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______,
                                 _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______),
+    /* Idea: split navigation layer into Nav-left and Nav-right */
     [_NAV] = LAYOUT(
-        _______, _______, _______, _______,    _______, _______,                                     KC_HOME, A(S(KC_TAB)), KC_PGUP, A(KC_TAB), _______, _______,
-        _______, _______, _______, A(KC_LCTL), _______, _______,                                     _______, KC_LEFT,      KC_UP,   KC_DOWN,   KC_RGHT, _______,
-        _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______, KC_END,  C(S(KC_TAB)), KC_PGDN, C(KC_TAB), _______, _______,
-                                   _______,    _______, _______, _______, _______, _______, _______, _______, _______,      _______
+        _______, _______,    _______,   _______,   _______,  _______,                                     KC_HOME, APP_PREV, KC_PGUP, APP_NEXT, _______, _______,
+        _______, LINE_START, WORD_PREV, WORD_NEXT, LINE_END, _______,                                     _______, KC_LEFT,  KC_DOWN, KC_UP,    KC_RGHT, _______,
+        _______, _______,    _______,   _______,   _______,  _______, _______, _______, _______, _______, KC_END,  TAB_PREV, KC_PGDN, TAB_NEXT, _______, _______,
+                                        _______,   _______,  _______, _______, _______, _______, _______, _______, _______,      _______
     )
 };
 
