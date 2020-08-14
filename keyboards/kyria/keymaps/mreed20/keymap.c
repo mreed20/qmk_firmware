@@ -38,17 +38,13 @@ enum {
     MOD_DOT  = CTL_T(KC_DOT),
     MOD_SLSH = LALT_T(KC_SLSH),
 
-    // Mac window navigation
-    APP_PREV = S(G(KC_TAB)),
-    APP_NEXT = G(KC_TAB),
-
     // browser tab navigation
     TAB_PREV = S(C(KC_TAB)),
     TAB_NEXT = C(KC_TAB),
 
     // command-line editing navigation
-    WORD_PREV  = A(KC_B),
-    WORD_NEXT  = A(KC_F),
+    WORD_PREV  = A(KC_LEFT),
+    WORD_NEXT  = A(KC_RIGHT),
     LINE_START = C(KC_A),
     LINE_END   = C(KC_E)
 };
@@ -85,10 +81,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                 _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______),
     /* Idea: split navigation layer into Nav-left and Nav-right */
     [_NAV] = LAYOUT(
-        _______, _______,    _______,   _______,   _______,  _______,                                     KC_HOME, APP_PREV, KC_PGUP, APP_NEXT, _______, _______,
+        _______, _______,    _______,   _______,   _______,  _______,                                     _______, TAB_PREV, KC_PGUP, TAB_NEXT, _______, _______,
         _______, LINE_START, WORD_PREV, WORD_NEXT, LINE_END, _______,                                     _______, KC_LEFT,  KC_DOWN, KC_UP,    KC_RGHT, _______,
-        _______, _______,    _______,   _______,   _______,  _______, _______, _______, _______, _______, KC_END,  TAB_PREV, KC_PGDN, TAB_NEXT, _______, _______,
-                                        _______,   _______,  _______, _______, _______, _______, _______, _______, _______,      _______
+        _______, _______,    _______,   _______,   _______,  _______, _______, _______, _______, _______, _______, KC_HOME,  KC_PGDN, KC_END,   _______, _______,
+                                        _______,   _______,  _______, _______, _______, _______, _______, _______, _______,  _______
     )
 };
 
