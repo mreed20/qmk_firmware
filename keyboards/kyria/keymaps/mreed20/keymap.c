@@ -17,7 +17,7 @@
 
 // Layers
 enum {
-    _BASE = 0,  // Base layer, Norman layout
+    _BASE = 0,  // Main RSTHD layout
     _SYML,      // Left symbols
     _SYMR,      // Right symbols
     _NUM,       // Numbers
@@ -26,17 +26,15 @@ enum {
 
 // Custom key names
 enum {
-    // left bottom row
-    MOD_Z = LALT_T(KC_Z),
-    MOD_X = CTL_T(KC_X),
-    MOD_C = GUI_T(KC_C),
-    MOD_V = SFT_T(KC_V),
+    // left bottom row, excluding Alt
+    MOD_V = CTL_T(KC_V),
+    MOD_G = GUI_T(KC_G),
+    MOD_P = SFT_T(KC_P),
 
-    // right bottom row
-    MOD_M    = SFT_T(KC_M),
-    MOD_COMM = GUI_T(KC_COMM),
-    MOD_DOT  = CTL_T(KC_DOT),
-    MOD_SLSH = LALT_T(KC_SLSH),
+    // right bottom row, excluding Alt
+    MOD_W    = SFT_T(KC_W),
+    MOD_DOT  = GUI_T(KC_DOT),
+    MOD_BSPC = CTL_T(KC_BSPC),
 
     // browser tab navigation
     TAB_PREV = S(C(KC_TAB)),
@@ -61,10 +59,10 @@ enum {
 /* ), */
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
-        _______, KC_Q,  KC_W,  KC_D,    KC_F,    KC_K,                                                                               KC_J,    KC_U,    KC_R,     KC_L,    KC_SCLN,  _______,
-        _______, KC_A,  KC_S,  KC_E,    KC_T,    KC_G,                                                                               KC_Y,    KC_N,    KC_I,     KC_O,    KC_H,     _______,
-        _______, MOD_Z, MOD_X, MOD_C,   MOD_V,   KC_B,    _______,           _______,           _______,          _______,           KC_P,    MOD_M,   MOD_COMM, MOD_DOT, MOD_SLSH, _______,
-                               _______, _______, KC_VOLD, LT(_NAV,APP_PREV), LT(_SYMR,KC_BSPC), LT(_SYML,KC_SPC), LT(_NUM,APP_NEXT), KC_VOLU, _______, _______
+        _______, KC_J,    KC_C,  KC_Y,    KC_F,    KC_K,                                                                            KC_Z,    KC_L,    KC_COMM, KC_U,     KC_Q,    _______,
+        _______, KC_R,    KC_S,  KC_T,    KC_H,    KC_D,                                                                            KC_M,    KC_N,    KC_A,    KC_I,     KC_O,    _______,
+        _______, KC_LALT, MOD_V, MOD_G,   MOD_P,   KC_B,    _______,           _______,        _______,          _______,           KC_X,    MOD_W,   MOD_DOT, MOD_BSPC, KC_LALT, _______,
+                                 _______, _______, KC_VOLD, LT(_NAV,APP_PREV), LT(_SYMR,KC_E), LT(_SYML,KC_SPC), LT(_NUM,APP_NEXT), KC_VOLU, _______, _______
     ),
     [_SYML] = LAYOUT(
         _______, _______, KC_COLN, KC_LABK, KC_RABK, KC_SCLN,                                     _______, _______, _______, _______, _______, _______,
@@ -91,18 +89,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 
-// Disable permissive hold for home row mods.
+// Disable permissive hold for bottom row mods.
 // Source: MrLinuxFish on Discord channel "splitkb.com".
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case MOD_Z:
-        case MOD_X:
-        case MOD_C:
         case MOD_V:
-        case MOD_M:
-        case MOD_COMM:
+        case MOD_G:
+        case MOD_P:
+        case MOD_W:
         case MOD_DOT:
-        case MOD_SLSH:
+        case MOD_BSPC:
             // This actually *disables* the permissive hold for these keys.
             // See issue https://github.com/qmk/qmk_firmware/issues/8999
             return true;
