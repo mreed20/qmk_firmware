@@ -26,83 +26,48 @@ enum {
 
 // Custom key names
 enum {
-    // left bottom row, excluding Alt
-    MOD_V = CTL_T(KC_V),
-    MOD_G = GUI_T(KC_G),
-    MOD_P = SFT_T(KC_P),
+    // left bottom row
+    MOD_SLSH = ALT_T(KC_SLSH),
+    MOD_V    = CTL_T(KC_V),
+    MOD_G    = GUI_T(KC_G),
+    MOD_P    = SFT_T(KC_P),
 
-    // right bottom row, excluding Alt
-    MOD_W    = SFT_T(KC_W),
-    MOD_DOT  = GUI_T(KC_DOT),
-    MOD_BSPC = CTL_T(KC_BSPC),
-
-    // browser tab navigation
-    TAB_PREV = S(C(KC_TAB)),
-    TAB_NEXT = C(KC_TAB),
-
-    // Mac window navigation
-    APP_PREV = S(G(KC_TAB)),
-    APP_NEXT = G(KC_TAB),
-
-    // command-line editing navigation
-    WORD_PREV  = A(KC_LEFT),
-    WORD_NEXT  = A(KC_RIGHT),
-    LINE_START = C(KC_A),
-    LINE_END   = C(KC_E)
+    // right bottom row
+    MOD_W   = SFT_T(KC_W),
+    MOD_DOT = GUI_T(KC_DOT),
+    MOD_ENT = CTL_T(KC_ENT),
+    MOD_ESC = ALT_T(KC_ESC),
 };
 
-/* [_LAYERINDEX] = LAYOUT( */
-/*   _______, _______, _______, _______, _______, _______,                                     _______, _______, _______, _______, _______, _______, */
-/*   _______, _______, _______, _______, _______, _______,                                     _______, _______, _______, _______, _______, _______, */
-/*   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, */
-/*                              _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ */
-/* ), */
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
-        _______, KC_J,    KC_C,  KC_Y,    KC_F,    KC_K,                                                                            KC_Z,    KC_L,    KC_COMM, KC_U,     KC_Q,    _______,
-        _______, KC_R,    KC_S,  KC_T,    KC_H,    KC_D,                                                                            KC_M,    KC_N,    KC_A,    KC_I,     KC_O,    _______,
-        _______, KC_LALT, MOD_V, MOD_G,   MOD_P,   KC_B,    _______,           _______,        _______,          _______,           KC_X,    MOD_W,   MOD_DOT, MOD_BSPC, KC_LALT, _______,
-                                 _______, _______, KC_VOLD, LT(_NAV,APP_PREV), LT(_SYMR,KC_E), LT(_SYML,KC_SPC), LT(_NUM,APP_NEXT), KC_VOLU, _______, _______
+        _______, KC_J,     KC_C,  KC_Y,    KC_F,    KC_K,                                                                         KC_Z,    KC_L,    KC_COMM, KC_U,    KC_Q,    _______,
+        _______, KC_R,     KC_S,  KC_T,    KC_H,    KC_D,                                                                         KC_M,    KC_N,    KC_A,    KC_I,    KC_O,    _______,
+        _______, MOD_SLSH, MOD_V, MOD_G,   MOD_P,   KC_B,    _______,         _______,        _______,          _______,          KC_X,    MOD_W,   MOD_DOT, MOD_ENT, MOD_ESC, _______,
+                                  _______, _______, KC_VOLD, LT(_NAV,KC_TAB), LT(_SYMR,KC_E), LT(_SYML,KC_SPC), LT(_NUM,KC_BSPC), KC_VOLU, _______, _______
     ),
     [_SYML] = LAYOUT(
         _______, _______, KC_COLN, KC_LABK, KC_RABK, KC_SCLN,                                     _______, _______, _______, _______, _______, _______,
-        _______, KC_LCBR, KC_RCBR, KC_LPRN, KC_RPRN, KC_AT,                                       _______, KC_ENT,  KC_EQL,  KC_PLUS, KC_PERC, _______,
-        _______, _______, KC_EXLM, KC_LBRC, KC_RBRC, _______, _______, _______, _______, _______, _______, KC_ESC,  _______, _______, _______, _______,
+        _______, KC_LCBR, KC_RCBR, KC_LPRN, KC_RPRN, KC_AT,                                       _______, _______, KC_EQL,  KC_PLUS, KC_PERC, _______,
+        _______, _______, KC_EXLM, KC_LBRC, KC_RBRC, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
                                    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
     [_SYMR] = LAYOUT(
-        _______, _______, _______, _______, _______,   _______,                                     _______, KC_UNDS, KC_PIPE, KC_QUOT, _______, _______,
-        _______, KC_CIRC, KC_ASTR, KC_AMPR, KC_TAB,    _______,                                     KC_HASH, KC_TILD, KC_SLSH, KC_DQUO, KC_DLR,  _______,
-        _______, _______, _______, _______, S(KC_TAB), _______, _______, _______, _______, _______, _______, KC_MINS, KC_BSLS, KC_GRV,  _______, _______,
-                                   _______, _______,   _______, _______, _______, _______, _______, _______, _______, _______
+        _______, _______, _______, _______, _______, _______,                                     _______, KC_UNDS, KC_PIPE, KC_QUOT, _______, _______,
+        _______, KC_CIRC, KC_ASTR, KC_AMPR, _______, _______,                                     KC_HASH, KC_TILD, KC_SLSH, KC_DQUO, KC_DLR,  _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_MINS, KC_BSLS, KC_GRV,  _______, _______,
+                                   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
     [_NUM] = LAYOUT(
         _______, _______, KC_7, KC_8,    KC_9,    _______,                                     _______,  _______, _______, _______, _______, _______,
         _______, KC_0,    KC_1, KC_2,    KC_3,    _______,                                     _______,  _______, _______, _______, _______, _______,
         _______, _______, KC_4, KC_5,    KC_6,    _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______,
-                                _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______),
+                                _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______
+    ),
     [_NAV] = LAYOUT(
-        _______, _______,    _______,   _______,   _______,  _______,                                     _______, TAB_PREV, KC_PGUP, TAB_NEXT, _______, _______,
-        _______, LINE_START, WORD_PREV, WORD_NEXT, LINE_END, _______,                                     _______, KC_LEFT,  KC_DOWN, KC_UP,    KC_RGHT, _______,
-        _______, _______,    _______,   _______,   _______,  _______, _______, _______, _______, _______, _______, KC_HOME,  KC_PGDN, KC_END,   _______, _______,
-                                        _______,   _______,  _______, _______, _______, _______, _______, _______, _______,  _______
+        _______, _______, _______, _______, _______, _______,                                     _______, _______, KC_PGUP, _______, _______, _______,
+        _______, _______, _______, KC_LCTL, KC_LALT, _______,                                     _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_END,  _______, _______,
+                                   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     )
 };
-
-// Disable permissive hold for bottom row mods.
-// Source: MrLinuxFish on Discord channel "splitkb.com".
-bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case MOD_V:
-        case MOD_G:
-        case MOD_P:
-        case MOD_W:
-        case MOD_DOT:
-        case MOD_BSPC:
-            // This actually *disables* the permissive hold for these keys.
-            // See issue https://github.com/qmk/qmk_firmware/issues/8999
-            return true;
-        default:
-            return false;
-    }
-}

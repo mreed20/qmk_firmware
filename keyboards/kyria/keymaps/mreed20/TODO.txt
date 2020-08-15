@@ -1,3 +1,6 @@
+- Given a layer key TOG = LT(layer_x, KC_SOMEKEY), do I need to mark the
+  location of TOG in layer_x as a No-op? I don't understand layers that well...
+
 - don't use RGB (too much work)
 
 - mouse keys

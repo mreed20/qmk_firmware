@@ -19,7 +19,6 @@
 // This works better for faster typists.
 #define TAPPING_TERM 155
 #define IGNORE_MOD_TAP_INTERRUPT
-#define PERMISSIVE_HOLD
 #define TAPPING_FORCE_HOLD
 
 // This way only one side has the used keymap.
