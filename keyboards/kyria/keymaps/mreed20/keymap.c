@@ -35,7 +35,7 @@ enum {
     // right bottom row
     MOD_W   = SFT_T(KC_W),
     MOD_DOT = GUI_T(KC_DOT),
-    MOD_ENT = CTL_T(KC_ENT),
+    MOD_TAB = CTL_T(KC_TAB),
     MOD_ESC = ALT_T(KC_ESC),
 };
 
@@ -43,8 +43,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
         _______, KC_J,     KC_C,  KC_Y,    KC_F,    KC_K,                                                                         KC_Z,    KC_L,    KC_COMM, KC_U,    KC_Q,    _______,
         _______, KC_R,     KC_S,  KC_T,    KC_H,    KC_D,                                                                         KC_M,    KC_N,    KC_A,    KC_I,    KC_O,    _______,
-        _______, MOD_SLSH, MOD_V, MOD_G,   MOD_P,   KC_B,    _______,         _______,        _______,          _______,          KC_X,    MOD_W,   MOD_DOT, MOD_ENT, MOD_ESC, _______,
-                                  _______, _______, KC_VOLD, LT(_NAV,KC_TAB), LT(_SYMR,KC_E), LT(_SYML,KC_SPC), LT(_NUM,KC_BSPC), KC_VOLU, _______, _______
+        _______, MOD_SLSH, MOD_V, MOD_G,   MOD_P,   KC_B,    _______,          _______,        _______,          _______,         KC_X,    MOD_W,   MOD_DOT, MOD_TAB, MOD_ESC, _______,
+                                  _______, _______, KC_VOLD, LT(_NAV,KC_BSPC), LT(_SYMR,KC_E), LT(_SYML,KC_SPC), LT(_NUM,KC_ENT), KC_VOLU, _______, _______
     ),
     [_SYML] = LAYOUT(
         _______, _______, KC_COLN, KC_LABK, KC_RABK, KC_SCLN,                                     _______, _______, _______, _______, _______, _______,
