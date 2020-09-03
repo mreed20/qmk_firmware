@@ -1,3 +1,5 @@
+- Move alt-tab shortcut to thumbs on non-default layer (like KC_ESC)
+
 - Given a layer key TOG = LT(layer_x, KC_SOMEKEY), do I need to mark the
   location of TOG in layer_x as a No-op? I don't understand layers that well...
 
