@@ -53,13 +53,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_SYML] = LAYOUT(
         _______, _______, KC_COLN, KC_LABK, KC_RABK, KC_SCLN,                                     _______, _______, _______, _______, _______, _______,
-        _______, KC_LCBR, KC_RCBR, KC_LPRN, KC_RPRN, KC_AT,                                       _______, _______, KC_EQL,  KC_PLUS, KC_PERC, _______,
+        _______, KC_LCBR, KC_RCBR, KC_LPRN, KC_RPRN, KC_AT,                                       _______, KC_EQL,  KC_PLUS, KC_PERC, _______, _______,
         _______, _______, KC_EXLM, KC_LBRC, KC_RBRC, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
                                    _______, _______, _______, _______, KC_ESC,  _______, _______, _______, _______, _______
     ),
     [_SYMR] = LAYOUT(
         _______, _______, _______, _______, _______, _______,                                     _______, KC_UNDS, KC_PIPE, KC_QUOT, _______, _______,
-        _______, KC_CIRC, KC_ASTR, KC_AMPR, _______, _______,                                     KC_HASH, KC_TILD, KC_SLSH, KC_DQUO, KC_DLR,  _______,
+        _______, _______, KC_CIRC, KC_ASTR, KC_AMPR, _______,                                     KC_HASH, KC_TILD, KC_SLSH, KC_DQUO, KC_DLR,  _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_MINS, KC_BSLS, KC_GRV,  _______, _______,
                                    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
