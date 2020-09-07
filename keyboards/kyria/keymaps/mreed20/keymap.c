@@ -27,7 +27,7 @@ enum {
 // Custom key names
 enum {
     // left bottom row
-    MOD_SLSH = ALT_T(KC_SLSH),
+    MOD_QUOT = ALT_T(KC_QUOT),
     MOD_V    = CTL_T(KC_V),
     MOD_G    = GUI_T(KC_G),
     MOD_P    = SFT_T(KC_P),
@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
         _______, KC_J,     KC_C,  KC_Y,    KC_F,    KC_K,                                                                         KC_Z,    KC_L,    KC_COMM, KC_U,     KC_Q,     _______,
         _______, KC_R,     KC_S,  KC_T,    KC_H,    KC_D,                                                                         KC_M,    KC_N,    KC_A,    KC_I,     KC_O,     _______,
-        _______, MOD_SLSH, MOD_V, MOD_G,   MOD_P,   KC_B,    _______,          _______,        _______,          _______,         KC_X,    MOD_W,   MOD_DOT, MOD_SCLN, MOD_MINS, _______,
+        _______, MOD_QUOT, MOD_V, MOD_G,   MOD_P,   KC_B,    _______,          _______,        _______,          _______,         KC_X,    MOD_W,   MOD_DOT, MOD_SCLN, MOD_MINS, _______,
                                   _______, _______, KC_VOLD, LT(_NAV,KC_BSPC), LT(_SYMR,KC_E), LT(_SYML,KC_SPC), LT(_NUM,KC_ENT), KC_VOLU, _______, _______
     ),
     [_SYML] = LAYOUT(
