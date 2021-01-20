@@ -22,11 +22,6 @@ enum {
     MOD_DOT = GUI_T(KC_DOT),
     MOD_SCLN = CTL_T(KC_SCLN),
     MOD_MINS = ALT_T(KC_MINS),
-
-    // KC_(CUT|COPY|PASTE) do not seem to work on macOS.
-    MAC_CUT = G(KC_X),
-    MAC_COPY = G(KC_C),
-    MAC_PSTE = G(KC_V),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -55,9 +50,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    _______, _______, _______, _______
     ),
     [_NAV] = LAYOUT(
-        _______, _______, _______,  _______,  _______,                   _______, G(KC_TAB), KC_PGUP, C(KC_TAB), _______,
-        _______, KC_LCTL, KC_LALT,  KC_LSFT,  _______,                   _______, KC_LEFT,   KC_DOWN, KC_UP,     KC_RGHT,
-        _______, MAC_CUT, MAC_COPY, MAC_PSTE, _______,                   _______, KC_HOME,   KC_PGDN, KC_END,    _______,
-                                              _______, _______, _______, _______
+        _______, _______, _______,  _______, _______,                   _______, G(KC_TAB), KC_PGUP, C(KC_TAB), _______,
+        _______, KC_LCTL, KC_LALT,  KC_LSFT, _______,                   _______, KC_LEFT,   KC_DOWN, KC_UP,     KC_RGHT,
+        _______, _______, _______, _______,  _______,                   _______, KC_HOME,   KC_PGDN, KC_END,    _______,
+                                             _______, _______, _______, _______
     )
 };
